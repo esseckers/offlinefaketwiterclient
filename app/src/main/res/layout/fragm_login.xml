@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/loginScreen"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcom twitter"
+            android:layout_weight="0.3"
+            android:textSize="36sp"
+            android:gravity="center"/>
+
+
+    <FrameLayout android:layout_width="match_parent"
+                 android:layout_weight="0.3"
+                 android:layout_margin="24dp"
+                 android:layout_height="wrap_content">
+        <EditText
+                android:id="@+id/edName"
+                android:hint="Enter your name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </FrameLayout>
+
+    <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textColor="@android:color/white"
+            android:background="@color/colorAccent"
+            android:layout_margin="24dp"
+            android:gravity="center"/>
+</LinearLayout>

@@ -1,17 +1,21 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.esseckers.test.app.offlinefaketwiterclient"
+        applicationId "com.esseckers.test.app.offlinefaketwitterclient"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -30,11 +34,14 @@ dependencies {
     implementation "com.android.support:design:$supportLibraryVersion"
 
     //Room
-    implementation "android.arch.persistence.room:runtime:$roomVersion"
-    annotationProcessor "android.arch.persistence.room:compiler:$roomVersion"
+    implementation "androidx.room:room-common:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-rxjava2:$roomVersion"
+    implementation "androidx.room:room-testing:$roomVersion"
 
     //Cicerone Navigation
-    implementation "ru.terrakok.cicerone:cicerone:4.0.2"
+    implementation "ru.terrakok.cicerone:cicerone:5.0.0"
 
     //DI Koin for Kotlin
     implementation "org.koin:koin-core:$koinVersion"
@@ -43,8 +50,16 @@ dependencies {
     //RxJava
     implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
     implementation "io.reactivex.rxjava2:rxjava:2.2.6"
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.3.0'
 
-    testImplementation 'junit:junit:4.12'
+    //JUnit
+    testImplementation "junit:junit:4.12"
+    //Mockito
+    testImplementation "org.mockito:mockito-core:2.18.3"
+    //Mockito Kotlin
+    testImplementation "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }

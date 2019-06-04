@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">OfflineFakeTwiterClient</string>
+    <string name="app_name">OfflineFakeTwitterClient</string>
+    <string name="error">Something was going wrong</string>
 </resources>
